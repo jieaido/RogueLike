@@ -6,7 +6,7 @@ using System.Linq;
 using Random = UnityEngine.Random;
 
 
-public class MapManagner: MonoBehaviour
+public class MapManagner : MonoBehaviour
 {
 
     public GameObject[] Wall;
@@ -16,15 +16,15 @@ public class MapManagner: MonoBehaviour
     public GameObject[] Enemy;
     public int Cols;
     public int Rows;
-    private readonly List<Vector3> _inWallPosList=new List<Vector3>();
+    private readonly List<Vector3> _inWallPosList = new List<Vector3>();
 
     private GameObject _mapHolder;
     void Start()
     {
-      
-        InitMap(Cols,Rows);
-        InitItem(2,5,InWall);
-        InitItem(0, (int)Mathf.Log(LevelManager.Nowlevel)+1, Items);
+
+        InitMap(Cols, Rows);
+        InitItem(2, 5, InWall);
+        InitItem(0, (int)Mathf.Log(LevelManager.Nowlevel) + 1, Items);
         InitItem(0, (int)Mathf.Log(LevelManager.Nowlevel), Enemy);
 
     }
@@ -33,34 +33,34 @@ public class MapManagner: MonoBehaviour
     /// </summary>
     /// <param name="cols">行数</param>
     /// <param name="rows">列数</param>
-    private void InitMap(int cols,int rows)
-        
+    private void InitMap(int cols, int rows)
+
     {
-        _mapHolder =new GameObject("Mapholder");
+        _mapHolder = new GameObject("Mapholder");
         for (int i = 0; i < cols; i++)
         {
             for (int j = 0; j < rows; j++)
             {
-                if (i==0||j==0||i==cols-1||j==rows-1)
+                if (i == 0 || j == 0 || i == cols - 1 || j == rows - 1)
                 {
 
-                    GameObject go=Instantiate(Wall[Random.Range(0, Wall.Length)], new Vector3(i, j, 0), Quaternion.identity) as GameObject;
+                    GameObject go = Instantiate(Wall[Random.Range(0, Wall.Length)], new Vector3(i, j, 0), Quaternion.identity) as GameObject;
                     go.transform.SetParent(_mapHolder.transform);
                 }
                 else
                 {
-                    GameObject go=Instantiate(Floor[Random.Range(0, Wall.Length)], new Vector3(i, j, 0), Quaternion.identity) as GameObject;
+                    GameObject go = Instantiate(Floor[Random.Range(0, Wall.Length)], new Vector3(i, j, 0), Quaternion.identity) as GameObject;
                     go.transform.SetParent(_mapHolder.transform);
-                    if ((i>=2&&i<cols-2)&&(j>=2&&j<rows-2))
+                    if ((i >= 2 && i < cols - 2) && (j >= 2 && j < rows - 2))
                     {
-                        _inWallPosList.Add(new Vector3(i,j,0));
+                        _inWallPosList.Add(new Vector3(i, j, 0));
                     }
                 }
-               
+
             }
         }
 
-       
+
     }
     #region MyRegion
     /// <summary>
@@ -76,7 +76,7 @@ public class MapManagner: MonoBehaviour
             var tempVector3 = GetRandomPositon();
             Instantiate(InWall[Random.Range(0, InWall.Length)], tempVector3, Quaternion.identity);
         }
-    } 
+    }
     #endregion
     /// <summary>
     /// 返回随机地图块
@@ -94,7 +94,7 @@ public class MapManagner: MonoBehaviour
     /// <param name="min">生成物体的最少数量</param>
     /// <param name="max">生成物体的最大数量</param>
     /// <param name="initobjects">生成物体的数组</param>
-    private void InitItem(int min ,int max,GameObject[] initobjects)
+    private void InitItem(int min, int max, GameObject[] initobjects)
     {
         int fornum = Random.Range(min, max + 1);
         for (int i = 0; i < fornum; i++)
