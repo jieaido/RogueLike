@@ -14,13 +14,15 @@ public class MapManagner: MonoBehaviour
     public GameObject[] InWall;
     public GameObject[] Items;
     public GameObject[] Enemy;
+    public int Cols;
+    public int Rows;
     private readonly List<Vector3> _inWallPosList=new List<Vector3>();
 
     private GameObject _mapHolder;
     void Start()
     {
       
-        InitMap(10,10);
+        InitMap(Cols,Rows);
         InitItem(2,5,InWall);
         InitItem(0, (int)Mathf.Log(LevelManager.Nowlevel)+1, Items);
         InitItem(0, (int)Mathf.Log(LevelManager.Nowlevel), Enemy);
