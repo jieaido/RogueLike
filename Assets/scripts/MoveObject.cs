@@ -3,22 +3,11 @@ using System.Collections;
 
 public abstract class MoveObject : MonoBehaviour
 {
-    protected  Rigidbody2D rb2d;
+    protected Rigidbody2D rb2d;
     protected BoxCollider2D bc2d;
-    public int Hp;
-    public int Mp;
 
-    // Use this for initialization
-    void Start ()
-    {
-      
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+  
+    
     protected virtual bool AttemptMove(int h, int v)
     {
         //private bool AttemptMove<T>(int h, int v)
@@ -34,7 +23,7 @@ public abstract class MoveObject : MonoBehaviour
             StartCoroutine(Moveing(endPos));
             return true;
         }
-        var t =hit2D.transform.GetComponent<ICanbeFuck>();//此时参数就死写了,只能处理ICanbefuck类,如果写成<T>,则可以继续复写
+        var t = hit2D.transform.GetComponent<ICanbeFuck>();//此时参数就死写了,只能处理ICanbefuck类,如果写成<T>,则可以继续复写
         //var t = hit2D.transform.GetComponent<T>();
         DoSomething(t);
         return false;

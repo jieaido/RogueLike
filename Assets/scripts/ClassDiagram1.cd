@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="MoveObject">
+    <Position X="9" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAgAAAAAAAAEAAgAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\MoveObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICanbeFuck">
+    <Position X="1.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\scripts\ICanbeFuck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAACAAACAAgAAAQAAAAAAAABAAAAAAEAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Monster">
+    <Position X="8.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAEAAAAAAAABAAAAAAASAAAAAAAEABAAAAAAA=</HashCode>
+      <FileName>Monster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="inwall">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAYMA=</HashCode>
+      <FileName>Assets\scripts\inwall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Weapon">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAAIA=</HashCode>
+      <FileName>Assets\scripts\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Armor">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAIAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\scripts\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shoe">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\scripts\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Ilife">
+    <Position X="12" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAABAAAAAAASAAAAAAAEABAAAAAAA=</HashCode>
+      <FileName>Ilife.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

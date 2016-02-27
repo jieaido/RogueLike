@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Player : MoveObject
+public class Player : MoveObject, Ilife
 {
-   
+
     public float cooldownTime = 1.0f;
     private Vector2 taegetpos = new Vector2(1, 1);
     private int tempint = 1;
     private int tempint2 = 1;
-   
+
     // Use this for initialization
     private void Start()
     {
@@ -21,9 +21,9 @@ public class Player : MoveObject
     private void Update()
     {
         cooldownTime += Time.deltaTime;
-       // _rigidbody2D.MovePosition(Vector2.Lerp(transform.position, taegetpos, 10*Time.deltaTime));
-        var h = (int) Input.GetAxisRaw("Horizontal");
-        var v = (int) Input.GetAxisRaw("Vertical");
+        // _rigidbody2D.MovePosition(Vector2.Lerp(transform.position, taegetpos, 10*Time.deltaTime));
+        var h = (int)Input.GetAxisRaw("Horizontal");
+        var v = (int)Input.GetAxisRaw("Vertical");
         if (h != 0)
         {
             v = 0;
@@ -35,8 +35,8 @@ public class Player : MoveObject
                 cooldownTime = 0f;
                 //taegetpos += new Vector2(h, v);
                 //StartCoroutine(Moveing(taegetpos));//此时就直接移动了,所以不行,添加测试函数atteptmove,这句话移动到atteptmove里
-               AttemptMove(h,v);
-          
+                AttemptMove(h, v);
+
                 // _rigidbody2D.MovePosition(taegetpos);
             }
         }
@@ -47,14 +47,14 @@ public class Player : MoveObject
         return base.AttemptMove(h, v);
     }
 
-   
+
 
     protected override void DoSomething(ICanbeFuck t)
     {
         t.Befuck(this);
     }
 
-   
+
     /*
     private IEnumerator Moveing(Vector2 endpos)
     {
@@ -103,5 +103,5 @@ public class Player : MoveObject
     }
     */
 
-       
+
 }
