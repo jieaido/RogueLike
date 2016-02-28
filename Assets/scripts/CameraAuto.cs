@@ -23,11 +23,11 @@ public class CameraAuto : MonoBehaviour
 	{
 	   float targetX = transform.position.x;
         float targetY = transform.position.y;
-        if (Mathf.Abs(transform.position.x-targetpos.position.x)>2f)
+        if (Mathf.Abs(transform.position.x-targetpos.position.x)>2.5f)
 	    {
 	       targetX= Mathf.Lerp(transform.position.x, targetpos.position.x, 10*Time.deltaTime);
 	    }
-        if (Mathf.Abs(transform.position.y - targetpos.position.y) > 2f)
+        if (Mathf.Abs(transform.position.y - targetpos.position.y) > 2.5f)
         {
             targetY = Mathf.Lerp(transform.position.y, targetpos.position.y, 10 * Time.deltaTime);
         }
