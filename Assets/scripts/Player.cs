@@ -6,9 +6,7 @@ public class Player : MoveObject, Ilife
 
     public float cooldownTime = 1.0f;
     private Vector2 taegetpos = new Vector2(1, 1);
-    private int tempint = 1;
-    private int tempint2 = 1;
-
+  
     // Use this for initialization
     private void Start()
     {
@@ -104,4 +102,10 @@ public class Player : MoveObject, Ilife
     */
 
 
+    public int AttackNum { get; set; }
+    public int DefenceNum { get; set; }
+    public int VelocityNum { get; set; }
+    public int VirgourNum { get; set; }
+    public int HPNum { get; set; }
+    public int HorizonNum { get; set; }
 }
