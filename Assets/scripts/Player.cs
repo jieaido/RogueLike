@@ -1,24 +1,39 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Player : MoveObject, Ilife
+public class Player : MoveObject, ILife
 {
+    public float CdTime = 0.8f;
 
-    public float cooldownTime = 1.0f;
-    private Vector2 taegetpos = new Vector2(1, 1);
-  
+
+
+
+    private float _cooldownTime;
+
+
+
     // Use this for initialization
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        cooldownTime = 0f;
+        _cooldownTime = CdTime;
         bc2d = GetComponent<BoxCollider2D>();
+
+
+
+
+
+    }
+
+    public void Awake()
+    {
+        TimeManager.Instance.AddEventLifeList(this);//添加到时间处理函数中
     }
 
     // Update is called once per frame
     private void Update()
     {
-        cooldownTime += Time.deltaTime;
+        _cooldownTime += Time.deltaTime;
         // _rigidbody2D.MovePosition(Vector2.Lerp(transform.position, taegetpos, 10*Time.deltaTime));
         var h = (int)Input.GetAxisRaw("Horizontal");
         var v = (int)Input.GetAxisRaw("Vertical");
@@ -28,9 +43,10 @@ public class Player : MoveObject, Ilife
         }
         if (h != 0 || v != 0)
         {
-            if (cooldownTime >= 0.2f)
+
+            if (_cooldownTime >= CdTime)
             {
-                cooldownTime = 0f;
+                _cooldownTime = 0f;
                 //taegetpos += new Vector2(h, v);
                 //StartCoroutine(Moveing(taegetpos));//此时就直接移动了,所以不行,添加测试函数atteptmove,这句话移动到atteptmove里
                 AttemptMove(h, v);
@@ -108,4 +124,8 @@ public class Player : MoveObject, Ilife
     public int VirgourNum { get; set; }
     public int HPNum { get; set; }
     public int HorizonNum { get; set; }
+    public void ChangeByTime()
+    {
+        VirgourNum--;
+    }
 }

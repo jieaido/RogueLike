@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Monster : MoveObject, Ilife
+public class Monster : MoveObject, ILife
 {
    
 
@@ -18,4 +18,8 @@ public class Monster : MoveObject, Ilife
     public int VirgourNum { get; set; }
     public int HPNum { get; set; }
     public int HorizonNum { get; set; }
+    public void ChangeByTime()
+    {
+        throw new NotImplementedException();
+    }
 }

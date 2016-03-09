@@ -69,6 +69,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Fog of War\Examples\Scripts\TSClickToMove.cs" />
+    <Compile Include="Assets\Fog of War\Examples\Scripts\TSMoveWithMouse.cs" />
+    <Compile Include="Assets\Fog of War\FoW\BetterList.cs" />
+    <Compile Include="Assets\Fog of War\FoW\FOWEffect.cs" />
+    <Compile Include="Assets\Fog of War\FoW\FOWRenderers.cs" />
+    <Compile Include="Assets\Fog of War\FoW\FOWRevealer.cs" />
+    <Compile Include="Assets\Fog of War\FoW\FOWSystem.cs" />
     <Compile Include="Assets\scripts\Armor.cs" />
     <Compile Include="Assets\scripts\CameraAuto.cs" />
     <Compile Include="Assets\scripts\CameraFollow.cs" />
@@ -85,10 +92,16 @@
     <Compile Include="Assets\scripts\TimeManager.cs" />
     <Compile Include="Assets\scripts\Weapon.cs" />
     <Compile Include="Assets\scripts\inwall.cs" />
+    <Compile Include="Assets\test.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Fog of War\Examples\Shaders\Untextured.shader" />
+    <None Include="Assets\Fog of War\FoW\FOW.shader" />
+    <None Include="Assets\Fog of War\ReadMe.txt" />
     <None Include="Assets\Fonts\OFL.txt" />
+    <None Include="Assets\NewImageEffectShader.shader" />
     <None Include="Assets\scripts\ClassDiagram1.cd" />
+    <None Include="Assets\scripts\设计说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -1,23 +1,37 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 
 public class TimeManager : MonoBehaviour
 {
-    public TimeManager Instance;
+    public  static TimeManager Instance;
    
-    public int Hour { get; private set; }
-    public int Year { get; private set; }
-    public DateTime Minute;
+    public uint Hour { get; private set; }
+    public uint Year { get; private set; }
+    protected HashSet<ILife> IlifeList; 
 
-    public int Day { get;private set; }
+    public uint Day { get;private set; }
 
     private float RunTime;
     // Use this for initialization
     void Start()
     {
 
+    }
+
+    public void AddEventLifeList(ILife life)
+    {
+        IlifeList.Add(life);
+        return;
+    }
+ 
+    public void SetGameTime(GameTimeStruck gtGameTimeStruck)
+    {
+        TimeManager.Instance.Day = gtGameTimeStruck.Day;
+        TimeManager.Instance.Hour = gtGameTimeStruck.Hour;
+        TimeManager.Instance.Year = gtGameTimeStruck.Year;
     }
 
     // Update is called once per frame
@@ -28,6 +42,10 @@ public class TimeManager : MonoBehaviour
         {
             RunTime = 0;
             Hour ++;
+            foreach (var life in IlifeList)
+            {
+                life.ChangeByTime();//
+            }
             if (Hour>23)//超过23小时就是一天
             {
                 Hour = 0;
@@ -54,5 +72,18 @@ public class TimeManager : MonoBehaviour
             Destroy(gameObject);
         }
        
+    }
+    public struct GameTimeStruck
+    {
+        public uint Year { get; private set; }
+        public uint Day { get; private set; }
+        public uint Hour { get; private set; }
+
+        public GameTimeStruck(uint day, uint year, uint hour) : this()
+        {
+            Day = day;
+            Year= year;
+            Hour = hour;
+        }
     }
 }

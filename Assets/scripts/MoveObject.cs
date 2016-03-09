@@ -44,7 +44,7 @@ public abstract class MoveObject : MonoBehaviour
         {
 
             //Find a new position proportionally closer to the end, based on the moveTime
-            Vector2 newPostion = Vector2.MoveTowards(rb2d.position, endPos, 10 * Time.deltaTime);
+            Vector2 newPostion = Vector2.MoveTowards(rb2d.position, endPos, Time.deltaTime);
 
             //Call MovePosition on attached Rigidbody2D and move it to the calculated position.
             rb2d.MovePosition(endPos);
