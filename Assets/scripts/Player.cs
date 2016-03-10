@@ -4,8 +4,9 @@ using UnityEngine;
 public class Player : MoveObject, ILife
 {
     public float CdTime = 0.8f;
-
-
+    public int MaxVirgour;
+    public int pv_Virgour;
+    private int pv_hp;
 
 
     private float _cooldownTime;
@@ -27,6 +28,8 @@ public class Player : MoveObject, ILife
 
     public void Awake()
     {
+        VirgourNum = pv_Virgour;
+        HPNum=new GameNum(100,0);
         TimeManager.Instance.AddEventLifeList(this);//添加到时间处理函数中
     }
 
@@ -121,11 +124,24 @@ public class Player : MoveObject, ILife
     public int AttackNum { get; set; }
     public int DefenceNum { get; set; }
     public int VelocityNum { get; set; }
+
     public int VirgourNum { get; set; }
-    public int HPNum { get; set; }
+    public GameNum HPNum { get; set; }
     public int HorizonNum { get; set; }
     public void ChangeByTime()
     {
-        VirgourNum--;
+        if (VirgourNum>0)
+        {
+            VirgourNum--;
+        }
+        else
+        {
+            if (HPNum.CurrentNum>0)
+            {
+                HPNum.CurrentNum=HPNum.CurrentNum-1;
+                pv_hp = HPNum.CurrentNum;
+            }
+        }
+        
     }
 }

@@ -16,7 +16,7 @@ public class Monster : MoveObject, ILife
     public int DefenceNum { get; set; }
     public int VelocityNum { get; set; }
     public int VirgourNum { get; set; }
-    public int HPNum { get; set; }
+    public GameNum HPNum { get; set; }
     public int HorizonNum { get; set; }
     public void ChangeByTime()
     {

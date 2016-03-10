@@ -10,7 +10,7 @@ public class TimeManager : MonoBehaviour
    
     public uint Hour { get; private set; }
     public uint Year { get; private set; }
-    protected HashSet<ILife> IlifeList; 
+    protected HashSet<ILife> IlifeList=new HashSet<ILife>(); 
 
     public uint Day { get;private set; }
 
@@ -24,7 +24,7 @@ public class TimeManager : MonoBehaviour
     public void AddEventLifeList(ILife life)
     {
         IlifeList.Add(life);
-        return;
+      
     }
  
     public void SetGameTime(GameTimeStruck gtGameTimeStruck)
@@ -38,7 +38,7 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         RunTime += Time.deltaTime;
-        if (RunTime>30)//超过30秒就是1个小时
+        if (RunTime>3)//超过30秒就是1个小时
         {
             RunTime = 0;
             Hour ++;
