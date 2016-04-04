@@ -51,7 +51,7 @@ public abstract class MoveObject : MonoBehaviour
 
             //Recalculate the remaining distance after moving.
             sqrRemainingDistance = (rb2d.position - endPos).sqrMagnitude;
-            print(sqrRemainingDistance > float.Epsilon);
+           // print(sqrRemainingDistance > float.Epsilon);
 
             //Return and loop until sqrRemainingDistance is close enough to zero to end the function
             yield return null;

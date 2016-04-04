@@ -210,3 +210,14 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+*.anim
+/Assets/anim_control
+/Assets/Audio
+/Assets/Fonts
+/Assets/prefers
+/Assets/Sprites
+*.unity
+*.shader
+/Library
+/ProjectSettings
+/Temp

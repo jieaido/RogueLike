@@ -19,7 +19,7 @@ public class Player : MoveObject, ILife
         rb2d = GetComponent<Rigidbody2D>();
         _cooldownTime = CdTime;
         bc2d = GetComponent<BoxCollider2D>();
-
+        TimeManager.Instance.AddEventLifeList(this);//添加到时间处理函数中
 
 
 
@@ -30,7 +30,7 @@ public class Player : MoveObject, ILife
     {
         VirgourNum = pv_Virgour;
         HPNum=new GameNum(100,0);
-        TimeManager.Instance.AddEventLifeList(this);//添加到时间处理函数中
+        
     }
 
     // Update is called once per frame
@@ -59,10 +59,10 @@ public class Player : MoveObject, ILife
         }
     }
 
-    protected override bool AttemptMove(int h, int v)
-    {
-        return base.AttemptMove(h, v);
-    }
+//    protected override bool AttemptMove(int h, int v)
+//    {
+//        return base.AttemptMove(h, v);
+//    }
 
 
 
