@@ -43,13 +43,25 @@ public class MapManagner : MonoBehaviour
             {
                 if (i == 0 || j == 0 || i == cols - 1 || j == rows - 1)
                 {
-
+                    //todo 查询算法就按这样写,生成地图的时候就pathnode赋了值
+                  
                     GameObject go = Instantiate(Wall[Random.Range(0, Wall.Length)], new Vector3(i, j, 0), Quaternion.identity) as GameObject;
                     go.transform.SetParent(_mapHolder.transform);
                 }
                 else
                 {
+                    
                     GameObject go = Instantiate(Floor[Random.Range(0, Wall.Length)], new Vector3(i, j, 0), Quaternion.identity) as GameObject;
+//                    var baseNode = go.GetComponent<BaseNode>();
+//                    baseNode.PathNode.Position=new Vector2(i,j);
+//                    baseNode.PathNode.IsPass = true;
+                    //这样做是不是不太好....
+                    //直接在pathfinder里设置静态list表,Nodes.add(new Pathnode{0,0 })
+                    PathFinder.FindNodes.Add(new PathNode()
+                    {
+                        IsPass = true,Position = new Vector2(i,j)
+                      
+                    });
                     go.transform.SetParent(_mapHolder.transform);
                     if ((i >= 2 && i < cols - 2) && (j >= 2 && j < rows - 2))
                     {
@@ -59,6 +71,7 @@ public class MapManagner : MonoBehaviour
 
             }
         }
+        int temp = 0;//只是测试
 
 
     }

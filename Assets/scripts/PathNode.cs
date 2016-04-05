@@ -27,6 +27,9 @@ public class PathNode     {
         Position = postion;
     }
 
+    public PathNode()
+    {
+    }
 
     public int CompareTo(PathNode other)
     {
