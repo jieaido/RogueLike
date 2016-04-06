@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	Rigidbody2D r=new Rigidbody2D();
+	//Rigidbody2D r=new Rigidbody2D();
       
 	}
 }

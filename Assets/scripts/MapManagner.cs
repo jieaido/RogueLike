@@ -47,6 +47,12 @@ public class MapManagner : MonoBehaviour
                   
                     GameObject go = Instantiate(Wall[Random.Range(0, Wall.Length)], new Vector3(i, j, 0), Quaternion.identity) as GameObject;
                     go.transform.SetParent(_mapHolder.transform);
+                    PathFinder.FindNodes.Add(new PathNode()
+                    {
+                        IsPass = false,
+                        Position = new Vector2(i, j)
+
+                    });
                 }
                 else
                 {
