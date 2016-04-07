@@ -9,7 +9,7 @@ public class PathFinder : MonoBehaviour
 
     public List<PathNode> CloseNodes = new List<PathNode>();
     public Transform GoalTransform;
-    public Rigidbody2D NodeR2D;
+    private Rigidbody2D NodeR2D;
     public List<PathNode> OpenNodes = new List<PathNode>();
 
     public PathNode ReturnFirstNode;
@@ -32,13 +32,15 @@ public class PathFinder : MonoBehaviour
     public bool FindGoal()
     {
         Vector2 endNode = GoalTransform.position;
+
         OpenNodes.Add(getNodeByPostion(NodeR2D.position));
         while (OpenNodes.Count > 0)
         {
             var currentNode = OpenNodes.OrderBy(p => p.TotalF).First();
             OpenNodes.Remove(currentNode);
-            CloseNodes.Remove(currentNode);
-            if (currentNode.Position == endNode)
+            CloseNodes.Add(currentNode);
+            var bbb = currentNode.Position == endNode;
+            if (bbb)
             {
                 var pps = new List<PathNode>();
                 var p = currentNode.ParentNode;
@@ -47,7 +49,17 @@ public class PathFinder : MonoBehaviour
                     pps.Add(p);
                     p = p.ParentNode;
                 }
-                ReturnFirstNode = pps.Last();
+                if (pps.Count == 1)
+                {
+                    ReturnFirstNode = pps.First();
+                }
+                else
+                {
+                    ReturnFirstNode = pps[pps.Count - 2];
+                    ReturnFirstNode.ParentNode = null;
+                }
+                OpenNodes.Clear();
+                CloseNodes.Clear();
                 return true;
             }
             foreach (var node in GetBoundNodes(currentNode.Position, endNode))
@@ -74,8 +86,6 @@ public class PathFinder : MonoBehaviour
                 }
             }
         }
-
-
         return false;
     }
 
@@ -94,7 +104,9 @@ public class PathFinder : MonoBehaviour
             if (pns[i] != null && pns[i].IsPass)
             {
                 var p = pns[i];
-                CalcTotalF(p, goalPos);
+
+
+                CalcTotalF(p, _pos, goalPos);
                 bounderNodes.Add(p);
             }
         }
@@ -106,12 +118,12 @@ public class PathFinder : MonoBehaviour
         return FindNodes.Find(p => p.Position == posVector2);
     }
 
-    private void CalcTotalF(PathNode thisNode, Vector2 goalPos)
+    private void CalcTotalF(PathNode thisNode, Vector2 PreVector2, Vector2 goalPos)
     {
         if (thisNode.ParentNode != null)
         {
-            thisNode.StartG = thisNode.ParentNode.StartG +
-                              PathNode.CalcEndH(thisNode.Position, thisNode.ParentNode.Position);
+            thisNode.StartG = getNodeByPostion(PreVector2).StartG +
+                              PathNode.CalcEndH(thisNode.Position, PreVector2);
         }
         thisNode.EndH = PathNode.CalcEndH(thisNode.Position, goalPos);
     }
