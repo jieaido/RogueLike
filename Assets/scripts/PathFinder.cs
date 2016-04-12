@@ -14,6 +14,22 @@ public class PathFinder : MonoBehaviour
 
     public PathNode ReturnFirstNode;
 
+
+
+
+    /*现在我要开始写寻找目标的代码了
+        首先怪物会有个寻找范围,可以把它想想成为视野
+        1每到一次运动时间(coldDown),怪物会进行一次搜索.如果发现有类似的食物,player和道具,怪物会把目标定位.
+		2当目标定位后(目标非空),怪物会进行寻路,如果是道具.怪物会把道具吃掉,然后重复第一步
+		3如果怪物是玩家
+ 
+
+
+
+
+
+
+    */
     // Use this for initialization
     private void Start()
     {
